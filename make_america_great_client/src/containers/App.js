@@ -16,7 +16,8 @@ class App extends Component {
 
 	componentDidMount() {
 		fetch(`${APP_URL}/scorerecords`)
-			.then(response => response.json())
+		//in the video, he has "()" after .json, but that caused a syntax error. this also produces errors, but the page still renders
+			.then(response => response.json)
 			.then(scorerecords => this.setState({ scorerecords }))
 	}
 	
