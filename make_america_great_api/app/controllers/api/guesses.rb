@@ -3,19 +3,19 @@ module Api
   class Guesses < ApplicationController
     before_action :set_guesses, only: [:show, :update]
 
-    # GET /score_records
+    # GET /guesses
     def index
       @guesses = Guess.all
 
       render json: @guesses
     end
 
-    # GET /score_records/1
+    # GET /guesses/1
     def show
       render json: @guess
     end
 
-    # POST /score_records
+    # POST /guesses
     def create
       @guess = Guess.new(guess_params)
 
@@ -26,7 +26,7 @@ module Api
       end
     end
 
-    # PATCH/PUT /score_records/1
+    # PATCH/PUT /guesses/1
     def update
       if @guess.update(guess_params)
         render json: @guess
@@ -43,7 +43,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def guess_params
-        params.require(:guess).permit()
+        params.require(:guess).permit(:guess, :date)
       end
   end
 
