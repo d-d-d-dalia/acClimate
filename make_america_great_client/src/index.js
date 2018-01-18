@@ -7,10 +7,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import scorerecordsReducer from './reducers/scorerecordsReducer';
 
-ReactDOM.render(
-	<App />, 
-	document.getElementById('root')
-);
+// ReactDOM.render(
+// 	<App />, 
+// 	document.getElementById('root')
+// );
 
 registerServiceWorker();
  
