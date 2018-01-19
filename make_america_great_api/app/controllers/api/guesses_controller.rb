@@ -1,6 +1,6 @@
 module Api
 
-  class Guesses < ApplicationController
+  class GuessesController < ApplicationController
     before_action :set_guesses, only: [:show, :update]
 
     # GET /guesses

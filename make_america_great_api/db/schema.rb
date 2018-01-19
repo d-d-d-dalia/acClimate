@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180118210418) do
 
   create_table "guesses", force: :cascade do |t|
     t.integer "guess"
-    t.datetime "date"
+    t.date "date"
   end
 
 end

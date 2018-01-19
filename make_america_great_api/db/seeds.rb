@@ -5,5 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Guess.create(guess: 1, date: 2018-01-18)
-Guess.create(guess: 0, date: 2018-01-17)
+Guess.create(guess: 1, date: '2018-01-18')
+Guess.create(guess: 0, date: '2018-01-17')
