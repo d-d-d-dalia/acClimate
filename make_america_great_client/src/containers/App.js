@@ -3,7 +3,7 @@ import './App.css'
 import { connect } from 'react-redux';
 import fetchJsonp from 'fetch-jsonp'
 import Guesses from './Guesses'
-import currentForecast from './components/CurrentForecast'
+import CurrentForecast from '../components/CurrentForecast'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
@@ -38,7 +38,7 @@ class App extends Component {
 			    <h2> Weather App </h2>
 			  </div>
 			  <p className="App-intro">
-			    { <CurrentForecast forecast={weatherData.currently} /> }
+			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
 			  </p>
 			</div>
 		)
