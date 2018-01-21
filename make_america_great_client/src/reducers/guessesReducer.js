@@ -1,12 +1,12 @@
 // import { combineReducers } from 'redux';
 
-
-
 // const rootReducer = combineReducers({
 //   guesses: guessesReducer, 
 // });
  
 // export const store = createStore(rootReducer);
+
+// each reducer should handle 1 action, and you can use combine reducers to ensure all get called
 
 export default function guessesReducer(state = {
   guesses: []
@@ -24,3 +24,7 @@ export default function guessesReducer(state = {
       return state;
   }
 }
+
+// guessesIncreaseCorrectCountReducer
+// guessesLoadingReducer
+// guessesFetchingSuccess

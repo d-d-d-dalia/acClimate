@@ -36,7 +36,7 @@ class App extends Component {
 		return (
 			<div className="App">
 			  <div className="App-header">
-			    <h2> Weather App </h2>
+			    <h2> Make America Great </h2>
 			  </div>
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
