@@ -22,9 +22,10 @@ class App extends Component {
 		navigator.geolocation.getCurrentPosition(position => {
 			const { latitude, longitude } = position.coords
 
-			fetchJsonp(`${APIURL}${latitude},${longitude}`)
+			fetchJsonp(`${APIURL}/${latitude},${longitude}`)
 				.then(response => response.json())
 				.then(weatherData => this.setState( {fetchingData: false, weatherData} ))
+				.catch(error => console.error(error))
 		})
 	}
 	
