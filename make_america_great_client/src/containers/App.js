@@ -1,61 +1,48 @@
 import React, { Component } from 'react';
 import './App.css'
 import { connect } from 'react-redux';
-import Scorerecords from './Scorerecords'
+import fetchJsonp from 'fetch-jsonp'
+import Guesses from './Guesses'
+import currentForecast from './components/CurrentForecast'
 
-const APP_URL = process.env.REACT_APP_API_URL
+const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
 class App extends Component {
 
 	constructor (props) {
-		super (props)
+		super ()
 
 		this.state = {
-			scorerecords: []
+			fetchingData: true,
+			weatherData: {}
 		}
 	}
 
 	componentDidMount() {
-		fetch(`${APP_URL}/score_records`)
-			.then(response => response.json())
-			.then(scorerecords => this.setState({ scorerecords }))
+		navigator.geolocation.getCurrentPosition(position => {
+			const { latitude, longitude } = position.coords
+
+			fetchJsonp(`${APIURL}${latitude},${longitude}`)
+				.then(response => response.json())
+				.then(weatherData => this.setState( {fetchingData: false, weatherData} ))
+		})
 	}
 	
 	render() {
-
+		const { fetchingData, weatherData } = this.state
+		console.log(fetchingData)
+		console.log("weather data: ", weatherData)
 		return (
 			<div className="App">
-				< Scorerecords scorerecords={this.state.scorerecords} />
+			  <div className="App-header">
+			    <h2> Weather App </h2>
+			  </div>
+			  <p className="App-intro">
+			    { <CurrentForecast forecast={weatherData.currently} /> }
+			  </p>
 			</div>
 		)
 	}
 }
 
-// something like this needs to happen to reduxify this. i think this will replace what i currently have in render.
-//handleOnClick() {
-//     this.props.store.dispatch({
-//       type: 'INCREASE_COUNT',
-//     });
-//   }
- 
-//   render() {
-//     return (
-//       <div className="App">
-//         <button onClick={(event) => this.handleOnClick(event)} >
-//           Click 
-//         </button>
-//         <p>{this.props.store.getState().scorerecords.length}</p>
-//       </div>
-//     );
-//   }
-// };
-
-const mapStateToProps = (state) => { 
-  return { scorerecords: state.scorerecords };
-};
-
-export default connect(mapStateToProps)(App);
-
-//create the store in index.js. you will also create a scorerecords reducer and a scorerecords action files as well.
-
-//also implement combine reducers - don't need multiple reducers for this to work, its ok if you just have the one scorerecords reducer.
+export default App
