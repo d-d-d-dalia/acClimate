@@ -4,18 +4,22 @@ import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 //applyMiddleware is re redux thunk
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';  
 import { Provider } from 'react-redux';
 import guessesReducer from './reducers/guessesReducer';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
+
 const loggerMiddleware = createLogger();
 
 registerServiceWorker();
- 
-const store = createStore(guessesReducer, applyMiddleware(thunk, loggerMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
- 
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
+const store = createStore(guessesReducer, composeEnhancers( 
+	applyMiddleware(thunk, loggerMiddleware) 
+	));
+
 ReactDOM.render(
   <Provider store={store}>
     <App store={store} />

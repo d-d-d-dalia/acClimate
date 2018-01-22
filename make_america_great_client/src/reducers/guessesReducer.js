@@ -20,6 +20,7 @@ export default function guessesReducer(state = {
       return Object.assign({}, state, { guesses: state.guesses.concat(state.guessess.length + 1) });
  
     default:
+    console.log(state)
       console.log("Initial state.guesses length: %s", state.guesses.length);
       return state;
   }
