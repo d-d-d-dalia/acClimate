@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { guessesFetchData } from '../actions/Guesses';//if this becomes responsible for updating the scorerecords, then it could be considered a container component
-import React from 'react';
+// import React from 'react';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 
 
 class GuessesList extends Component {

@@ -44,7 +44,7 @@ export function errorAfterFiveSeconds() {
 
 export function guessesFetchData(url) {
     return (dispatch) => {
-        dispatch(itemsIsLoading(true));
+        dispatch(guessesIsLoading(true));
 
         fetch(url)
             .then((response) => {
