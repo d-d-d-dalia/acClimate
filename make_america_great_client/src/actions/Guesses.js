@@ -10,5 +10,54 @@
 //   };
 // }
 
-//GUESSES_LOADING
-//GUESSES_CORRECT_INCREASED
+
+export function guessesHasErrored(bool) {
+    return {
+        type: 'GUESSES_HAS_ERRORED',
+        hasErrored: bool
+    };
+}
+
+export function guessesIsLoading(bool) {
+    return {
+        type: 'GUESSES_IS_LOADING',
+        isLoading: bool
+    };
+}
+
+export function guessesFetchDataSuccess(guesses) {
+    return {
+        type: 'GUESSES_FETCH_DATA_SUCCESS',
+        guesses
+    };
+}
+
+export function errorAfterFiveSeconds() {
+    // We return a function instead of an action object
+    return (dispatch) => {
+        setTimeout(() => {
+            // This function is able to dispatch other action creators
+            dispatch(guessesHasErrored(true));
+        }, 5000);
+    };
+}
+
+export function guessesFetchData(url) {
+    return (dispatch) => {
+        dispatch(itemsIsLoading(true));
+
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+
+                dispatch(guessesIsLoading(false));
+
+                return response;
+            })
+            .then((response) => response.json())
+            .then((items) => dispatch(guessesFetchDataSuccess(items)))
+            .catch(() => dispatch(guessesHasErrored(true)));
+    };
+}

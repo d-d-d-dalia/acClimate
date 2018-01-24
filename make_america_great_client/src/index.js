@@ -6,10 +6,16 @@ import registerServiceWorker from './registerServiceWorker';
 //applyMiddleware is re redux thunk
 import { createStore, applyMiddleware, compose } from 'redux';  
 import { Provider } from 'react-redux';
-import guessesReducer from './reducers/guessesReducer';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
+import { combineReducers } from 'redux';
+import { guesses, guessesHasErrored, guessesIsLoading } from './reducers/guessesReducer';
 
+export default combineReducers({
+    guesses,
+    guessesHasErrored,
+    guessesIsLoading
+});
 
 const loggerMiddleware = createLogger();
 
