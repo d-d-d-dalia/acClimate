@@ -22,11 +22,10 @@ class GuessesList extends Component {
 
         return (
         	<div className="Guesses Container">
-			  <h1> Your Guesses </h1>
+			  <h3> Your Guesses </h3>
 				{this.props.guesses.map((guess, i) =>
 				  <div className="GuessCard" key={i} >
-				  <p> {guess.date} </p>
-				  <p> {guess.guess} </p>
+				  <p> {guess.date} - {guess.guess}</p>
 				  </div>
 			)}
 			</div>
