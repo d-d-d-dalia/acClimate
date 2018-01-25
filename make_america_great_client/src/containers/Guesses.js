@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 class GuessesList extends Component {
     componentDidMount() {
 
-        this.props.fetchData('https://localhost:3001/api/guesses');
+        this.props.fetchData('http://localhost:3001/api/guesses');
     }
 
     render() {
@@ -22,7 +22,7 @@ class GuessesList extends Component {
 
         return (
         	<div className="Guesses Container">
-			  <h1> Guesses </h1>
+			  <h1> Your Guesses </h1>
 				{this.props.guesses.map((guess, i) =>
 				  <div className="GuessCard" key={i} >
 				  <p> {guess.date} </p>

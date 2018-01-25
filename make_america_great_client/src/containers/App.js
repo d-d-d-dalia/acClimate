@@ -42,6 +42,7 @@ class App extends Component {
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
 			  </div>
+			  <div> <Guesses/> </div>
 			</div>
 		)
 	}
