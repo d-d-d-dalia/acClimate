@@ -57,7 +57,7 @@ export function guessesFetchData(url) {
                 return response;
             })
             .then((response) => response.json())
-            .then((items) => dispatch(guessesFetchDataSuccess(items)))
+            .then((guesses) => dispatch(guessesFetchDataSuccess(guesses)))
             .catch(() => dispatch(guessesHasErrored(true)));
     };
 }

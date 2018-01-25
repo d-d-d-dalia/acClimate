@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
 import { guesses, guessesHasErrored, guessesIsLoading } from './reducers/guessesReducer';
 
-export default combineReducers({
+const combinedReducer = combineReducers({
     guesses,
     guessesHasErrored,
     guessesIsLoading
@@ -22,7 +22,7 @@ const loggerMiddleware = createLogger();
 registerServiceWorker();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
-const store = createStore(guessesReducer, composeEnhancers( 
+const store = createStore(combinedReducer, composeEnhancers( 
 	applyMiddleware(thunk, loggerMiddleware) 
 	));
 

@@ -7,7 +7,8 @@ import React, { Component } from 'react';
 
 class GuessesList extends Component {
     componentDidMount() {
-        this.props.fetchData(' ');
+
+        this.props.fetchData('https://localhost:3001/api/guesses');
     }
 
     render() {
@@ -22,7 +23,7 @@ class GuessesList extends Component {
         return (
         	<div className="Guesses Container">
 			  <h1> Guesses </h1>
-				{props.guesses.map((guess, i) =>
+				{this.props.guesses.map((guess, i) =>
 				  <div className="GuessCard" key={i} >
 				  <p> {guess.date} </p>
 				  <p> {guess.guess} </p>
@@ -35,7 +36,7 @@ class GuessesList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.guesses,
+        guesses: state.guesses,
         hasErrored: state.guessesHasErrored,
         isLoading: state.guessesIsLoading
     };
@@ -47,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GuessList);
+export default connect(mapStateToProps, mapDispatchToProps)(GuessesList);
