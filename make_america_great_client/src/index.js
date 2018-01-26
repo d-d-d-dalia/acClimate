@@ -28,12 +28,10 @@ const store = createStore(combinedReducer, composeEnhancers(
 	applyMiddleware(thunk, loggerMiddleware) 
 	));
 
-//TEST COMMENTS AFTER THIS BLOCK OF CODE BC MAY BE A SYNTAX ERROR?
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App store={store}/>
+      <Route path="/" component={ App } />
     </Router>
   </Provider>,
   document.getElementById('root')

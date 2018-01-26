@@ -30,16 +30,8 @@ class App extends Component {
 				.catch(error => console.error(error))
 		})
 	}
-	
-	render() {
-		
-		let GuessesLog = (
-		<div>
-		< Link to="/guesses" > Guesses Log </Link>
-		< Route path="/guesses" component={ Guesses } />
-		</div>
-		)
 
+	render() {
 		const { fetchingData, weatherData } = this.state
 		console.log(fetchingData)
 		console.log("weather data: ", weatherData)
@@ -49,11 +41,15 @@ class App extends Component {
 			    <h1> Make America Great </h1>
 			    <h3> one degree at a time </h3>
 			  </div>
-			  { GuessesLog }
+			  
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
 			  </div>
-			  <div> <Guesses/> </div>
+			  <div> 
+			  	<Link to={`/guesses`} > <h5> Guesses Log </h5> </Link>
+				<Route path="/guesses" component={ Guesses } />
+				<Link to={`/`} > <h5> Home </h5> </Link>
+			  </div>
 			</div>
 		)
 	}
