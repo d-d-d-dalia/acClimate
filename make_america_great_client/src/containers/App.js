@@ -5,6 +5,8 @@ import fetchJsonp from 'fetch-jsonp'
 import Guesses from './Guesses'
 import CurrentForecast from '../components/CurrentForecast'
 
+import {   BrowserRouter as Router,   Route, 	Switch } from 'react-router-dom'
+
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
 class App extends Component {

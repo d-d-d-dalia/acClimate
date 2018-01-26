@@ -11,6 +11,8 @@ import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
 import { guesses, guessesHasErrored, guessesIsLoading } from './reducers/guessesReducer';
 
+import {   BrowserRouter as Router,   Route, 	Switch } from 'react-router-dom'
+
 const combinedReducer = combineReducers({
     guesses,
     guessesHasErrored,
@@ -28,7 +30,9 @@ const store = createStore(combinedReducer, composeEnhancers(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App store={store} />
+    <Router>
+      <App store={store} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
