@@ -49,6 +49,7 @@ class App extends Component {
 			  	<Link to={`/guesses`} > <h5> Guesses Log </h5> </Link>
 				<Route path="/guesses" component={ Guesses } />
 				<Link to={`/`} > <h5> Home </h5> </Link>
+				<Link to={`/about`} > <h5> About </h5> </Link>
 			  </div>
 			</div>
 		)

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
+import Guesses from './containers/Guesses'
+import About from './components/About'
 import registerServiceWorker from './registerServiceWorker';
 //applyMiddleware is re redux thunk
 import { createStore, applyMiddleware, compose } from 'redux';  
@@ -31,7 +33,11 @@ const store = createStore(combinedReducer, composeEnhancers(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path="/" component={ App } />
+    	<Switch>
+      	  <Route exact path="/" component={ App } />
+      	  <Route path="/guesses" component= { Guesses } />
+      	  <Route path="/about" component= { About } />
+      	</Switch>
     </Router>
   </Provider>,
   document.getElementById('root')

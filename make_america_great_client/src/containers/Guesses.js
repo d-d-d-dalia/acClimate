@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { guessesFetchData } from '../actions/Guesses';//if this becomes responsible for updating the scorerecords, then it could be considered a container component
 // import React from 'react';
 import React, { Component } from 'react';
+import {  Route, 	Switch , Link } from 'react-router-dom'
 
 
 
@@ -27,7 +28,9 @@ class GuessesList extends Component {
 				  <div className="GuessCard" key={i} >
 				  <p> {guess.date} - {guess.guess}</p>
 				  </div>
-			)}
+				)}
+			  <Link to={`/`} > <h5> Home </h5> </Link>
+			  <Link to={`/about`} > <h5> About </h5> </Link>
 			</div>
         );
     }
