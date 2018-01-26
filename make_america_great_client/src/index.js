@@ -28,17 +28,13 @@ const store = createStore(combinedReducer, composeEnhancers(
 	applyMiddleware(thunk, loggerMiddleware) 
 	));
 
+//TEST COMMENTS AFTER THIS BLOCK OF CODE BC MAY BE A SYNTAX ERROR?
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <App store={store} />
+      <App store={store}/>
     </Router>
   </Provider>,
   document.getElementById('root')
 );
-
-// provider makes the store available to all container components
-// theres a single store that contains a state
-// reducers are functions that are current state + action which leads to the new state
-// reducers are always called by the store
-// store does a dispatch which takes in an action, which calls the appropriate reducer which creates new state from the old
