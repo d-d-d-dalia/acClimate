@@ -6,6 +6,7 @@ import Guesses from './Guesses'
 import CurrentForecast from '../components/CurrentForecast'
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
+import { guessesHasErrored, guessesIsLoading, guessesFetchDataSuccess, errorAfterFiveSeconds, guessesFetchData} from '../actions/Guesses'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 

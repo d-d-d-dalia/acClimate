@@ -42,11 +42,11 @@ export function errorAfterFiveSeconds() {
     };
 }
 
-export function guessesFetchData(url) {
+export const guessesFetchData = () => {
     return (dispatch) => {
         dispatch(guessesIsLoading(true));
 
-        fetch(url)
+        fetch('http://localhost:3001/api/guesses')
             .then((response) => {
 
                 if (!response.ok) {
