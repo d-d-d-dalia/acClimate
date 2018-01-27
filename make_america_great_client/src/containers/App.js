@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import fetchJsonp from 'fetch-jsonp'
 import Guesses from './Guesses'
 import CurrentForecast from '../components/CurrentForecast'
-
 import {  Route, 	Switch , Link } from 'react-router-dom'
+import GuessesForm from './GuessesForm'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
@@ -50,6 +50,9 @@ class App extends Component {
 				<Route path="/guesses" component={ Guesses } />
 				<Link to={`/`} > <h5> Home </h5> </Link>
 				<Link to={`/about`} > <h5> About </h5> </Link>
+			  </div>
+			  <div>
+			    < GuessesForm />
 			  </div>
 			</div>
 		)
