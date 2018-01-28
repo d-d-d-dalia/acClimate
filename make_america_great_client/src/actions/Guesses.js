@@ -10,6 +10,11 @@
 //   };
 // }
 
+export const createGuess = guess => {
+	return dispatch => {
+		return fetch()
+	}
+}
 
 export function guessesHasErrored(bool) {
     return {
