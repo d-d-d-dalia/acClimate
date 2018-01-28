@@ -1,9 +1,7 @@
  import React, { Component } from 'react';
  import Guesses from './Guesses'
-
  import { updateGuessesFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
-
  import { connect } from 'react-redux';
 
  class GuessesForm extends Component {
@@ -21,8 +19,6 @@
  	event.preventDefault()
  	this.props.createGuess(this.props.guessesFormData)
  }
-
- 	
 
  	render() {
  	  const {guess, date} = this.props.guessesFormData

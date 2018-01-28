@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import { guessesFetchData } from '../actions/Guesses';//if this becomes responsible for updating the scorerecords, then it could be considered a container component
-// import React from 'react';
 import React, { Component } from 'react';
 import {  Route, 	Switch , Link } from 'react-router-dom'
 
   
-class GuessesList extends Component {
+class Guesses extends Component {
     componentDidMount() {
 
         this.props.fetchData('http://localhost:3001/api/guesses');
@@ -17,7 +16,7 @@ class GuessesList extends Component {
         }
 
         if (this.props.isLoading) {
-            return <p>Loading…</p>;
+            return <p> Loading… </p>;
         }
 
         return (
@@ -49,6 +48,6 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GuessesList);
+export default connect(mapStateToProps, mapDispatchToProps)(Guesses);
 
 

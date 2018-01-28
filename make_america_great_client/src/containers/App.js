@@ -6,6 +6,7 @@ import Guesses from './Guesses'
 import CurrentForecast from '../components/CurrentForecast'
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
+import Footer from '../components/Footer'
 
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
@@ -54,6 +55,7 @@ class App extends Component {
 			  </div>
 			  <div>
 			    < GuessesForm />
+			    < Footer />
 			  </div>
 			</div>
 		)
