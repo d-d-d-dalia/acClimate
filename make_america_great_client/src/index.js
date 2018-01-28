@@ -11,14 +11,14 @@ import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
-import { guesses, guessesHasErrored, guessesIsLoading } from './reducers/guessesReducer';
+import guessesReducer from './reducers/guessesReducer';
+import guessesFormData from './reducers/guessesFormData';
 
 import {   BrowserRouter as Router,   Route, 	Switch } from 'react-router-dom'
 
 const combinedReducer = combineReducers({
-    guesses,
-    guessesHasErrored,
-    guessesIsLoading
+    guessesReducer,
+    guessesFormData
 });
 
 const loggerMiddleware = createLogger();

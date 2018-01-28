@@ -1,3 +1,6 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 export default (state =  {
 	guess: ''
 	date: ''
@@ -10,3 +13,11 @@ export default (state =  {
 			return state
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		guessesFormData: state.guessesFormData
+	}
+}
+
+export default connect(mapStateToProps)(guessesForm);

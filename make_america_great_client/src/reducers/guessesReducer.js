@@ -26,6 +26,8 @@
 //   }
 // }
 
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export function guessesHasErrored(state = false, action) {
     switch (action.type) {
