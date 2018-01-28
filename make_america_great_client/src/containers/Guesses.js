@@ -27,8 +27,8 @@ class Guesses extends Component {
 				  <p> {guess.date} - {guess.guess}</p>
 				  </div>
 				)}
-			  <Link to={`/`} > <h5> Home </h5> </Link>
-			  <Link to={`/about`} > <h5> About </h5> </Link>
+			  <Link to={`/`} > <h5> home </h5> </Link>
+			  <Link to={`/about`} > <h5> about the app </h5> </Link>
 			</div>
         );
     }

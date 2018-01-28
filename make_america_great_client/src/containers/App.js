@@ -47,14 +47,15 @@ class App extends Component {
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
 			  </div>
+			  <div>
+			  	< GuessesForm />
+			  </div>
 			  <div> 
-			  	<Link to={`/guesses`} > <h5> Guesses Log </h5> </Link>
+			  	<Link to={`/guesses`} > <h5> guesses log </h5> </Link>
 				<Route path="/guesses" component={ Guesses } />
-				<Link to={`/`} > <h5> Home </h5> </Link>
-				<Link to={`/about`} > <h5> About </h5> </Link>
+				<Link to={`/about`} > <h5> about the app </h5> </Link>
 			  </div>
 			  <div>
-			    < GuessesForm />
 			    < Footer />
 			  </div>
 			</div>
