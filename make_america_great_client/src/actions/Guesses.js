@@ -12,8 +12,18 @@
 
 export const createGuess = guess => {
 	return dispatch => {
-		return fetch()
-	}
+        //i'm not sure what this url is supposed to be
+		return fetch(`http://localhost:3001/api/guesses`, {
+          method: "POST",
+          headers: {
+            'Conent-Type': 'application/json'
+          },
+        data: JSON.stringify(guess)
+	   })
+        .then(response => response.json())
+        .then(guess => {debugger})
+        .then(error => console.log(error))
+    }
 }
 
 export function guessesHasErrored(bool) {
