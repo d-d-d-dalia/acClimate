@@ -11,6 +11,8 @@ export default (state = {
             return action.isLoading;
         case 'GUESSES_FETCH_DATA_SUCCESS':
             return action.guesses;
+        case 'CREATE_GUESS_SUCCESS':
+            return state.concat(action.guess)
         default:
             return state;
     }

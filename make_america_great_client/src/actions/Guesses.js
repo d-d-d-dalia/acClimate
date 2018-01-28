@@ -1,14 +1,9 @@
-// import fetch from 'isomorphic-fetch';
-// export function fetchGuesses() {
-
-// export function fetchGuesses() {
-//   return (dispatch) => {
-//     dispatch({ type: 'START_ADDING_CATS_REQUEST' });
-//     return fetch('http://www..com')
-//       .then(response => response.json())
-//       .then(cats => dispatch({ type: 'ADD_CATS', cats }));
-//   };
-// }
+const addGuess = guess => {
+    return {
+        type: ' CREATE_GUESS_SUCCESS',
+        guess
+    }
+}
 
 export const createGuess = guess => {
 	return dispatch => {
@@ -18,10 +13,10 @@ export const createGuess = guess => {
           headers: {
             'Conent-Type': 'application/json'
           },
-        data: JSON.stringify(guess)
+        body: JSON.stringify({ guess: guess })
 	   })
         .then(response => response.json())
-        .then(guess => {debugger})
+        .then(guess => (addGuess(guess)))
         .then(error => console.log(error))
     }
 }
