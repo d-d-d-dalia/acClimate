@@ -4,6 +4,7 @@ import './index.css';
 import App from './containers/App';
 import Guesses from './containers/Guesses'
 import About from './components/About'
+import howItWorks from './components/howItWorks'
 import registerServiceWorker from './registerServiceWorker';
 //applyMiddleware is re redux thunk
 import { createStore, applyMiddleware, compose } from 'redux';  
@@ -37,6 +38,7 @@ ReactDOM.render(
       	  <Route exact path="/" component={ App } />
       	  <Route path="/guesses" component= { Guesses } />
       	  <Route path="/about" component= { About } />
+          <Route path="/howitworks" component={ howItWorks } />
       	</Switch>
     </Router>
   </Provider>,

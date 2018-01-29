@@ -58,7 +58,7 @@ export const guessesFetchData = () => {
 
         fetch('http://localhost:3001/api/guesses')
             .then((response) => {
-debugger
+
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }

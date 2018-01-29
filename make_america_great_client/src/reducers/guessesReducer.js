@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 export default (state = {
     error: false, loading: false, guesses: []
     }, action) => {
     switch (action.type) {
         case 'GUESSES_HAS_ERRORED':
-            return action.hasErrored;
+            return { 
+                //spread operator: "for every key value pair in this value 'state', apply them here"
+              ...state,
+              error : action.hasErrored 
+            };
         case 'GUESSES_IS_LOADING':
-            return action.isLoading;
+            return { 
+              ...state,
+              loading : action.isLoading 
+            };
         case 'GUESSES_FETCH_DATA_SUCCESS':
-            return action.guesses;
+            return { 
+              ...state,
+              guesses : action.guesses 
+            };
         case 'CREATE_GUESS_SUCCESS':
-            return state.concat(action.guess)
+            return { 
+              ...state,
+              guesses : [ ...state.guesses, action.guess ] 
+            };
         default:
             return state;
     }
