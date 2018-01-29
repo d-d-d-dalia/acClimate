@@ -3,6 +3,7 @@ import './App.css'
 import { connect } from 'react-redux';
 import fetchJsonp from 'fetch-jsonp'
 import Guesses from './Guesses'
+import howItWorks from '../components/howItWorks'
 import CurrentForecast from '../components/CurrentForecast'
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
@@ -53,7 +54,9 @@ class App extends Component {
 			  <div> 
 			  	<Link to={`/guesses`} > <h5> guesses log </h5> </Link>
 				<Route path="/guesses" component={ Guesses } />
-				<Link to={`/about`} > <h5> about the app </h5> </Link>
+				<Link to={`/about`} > <h5> the purpose </h5> </Link>
+				<Route path="/howitworks" component={ howItWorks } />
+				<Link to={`/howitworks`} > <h5> how it works </h5> </Link>
 			  </div>
 			  <div>
 			    < Footer />

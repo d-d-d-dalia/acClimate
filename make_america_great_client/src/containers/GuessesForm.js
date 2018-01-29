@@ -24,7 +24,7 @@
  	  const {guess, date} = this.props.guessesFormData
  	  return (
  	  	<div>
- 	  	  Venture a guess in celsius!
+ 	  	  <h4> What does the temperature feel like in Celsius? </h4>
  	  	  <form onSubmit={this.handleOnSubmit}>
  	  	    <label htmlFor="guess"></label>
  	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
