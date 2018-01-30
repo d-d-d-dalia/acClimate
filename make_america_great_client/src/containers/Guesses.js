@@ -23,11 +23,11 @@ class Guesses extends Component {
         return (
         	<div className="Guesses Container">
 			  <h4> Your Guesses: </h4>
-				{this.props.guesses ? this.props.guesses.map((guess, i) =>
+				{this.props ? this.props.guesses.map((guess, i) =>
 				  <div className="GuessCard" key={i} >
-				  <p> {guess.date} - {guess.guess}</p>
+				  <p> {guess.date} - {guess.guess ? "right on!" : "womp-womp"}</p>
 				  </div>
-				) : '' }
+				) : 'uh oh' }
 			  <Link to={`/`} > <h5> home </h5> </Link>
 			  <Link to={`/about`} > <h5> about the app </h5> </Link>
 			</div>
@@ -35,12 +35,13 @@ class Guesses extends Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
+    console.log('yes im being called')
+    console.log(state)
     return {
-        guesses: state.guesses,
-        hasErrored: state.guessesHasErrored,
-        isLoading: state.guessesIsLoading
+        guesses: state.guessesReducer.guesses,
+        hasErrored: state.guessesReducer.error,
+        isLoading: state.guessesReducer.loading
     };
 };
 

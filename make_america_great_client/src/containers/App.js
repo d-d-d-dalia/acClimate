@@ -58,7 +58,7 @@ class App extends Component {
 				<Link to={`/about`} > <h5> the purpose </h5> </Link>
 
 				<Link to={`/howitworks`} > <h5> how it works </h5> </Link>
-				<Route path="/howitworks" component={ howItWorks } />
+				
 			  </div>
 			  <div>
 			    < Footer />
