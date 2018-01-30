@@ -3,8 +3,10 @@ import { guessesFetchData } from '../actions/Guesses';
 import React, { Component } from 'react';
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
-import { App } from './App'
+import { CurrentForecast } from '../components/CurrentForecast'
 
+//const guessConverted = ({guess} - 32)/1.8
+//( diff btw {temperature} & {guess} <= 5 ) ? "right on!" : "womp-womp"
   
 class Guesses extends Component {
     componentDidMount() {
@@ -43,7 +45,8 @@ const mapStateToProps = (state) => {
     return {
         guesses: state.guessesReducer.guesses,
         hasErrored: state.guessesReducer.error,
-        isLoading: state.guessesReducer.loading
+        isLoading: state.guessesReducer.loading,
+        temperature: state.temperature
     };
 };
 
