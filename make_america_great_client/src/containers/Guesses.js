@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
+import Footer from '../components/Footer'
 
 //const guessConverted = ({guess} - 32)/1.8
 //( diff btw {temperature} & {guess} <= 5 ) ? "right on!" : "womp-womp"
@@ -32,8 +33,12 @@ class Guesses extends Component {
 				  <p> {guess.date} - {guess.guess ? "right on!" : "womp-womp"}</p>
 				  </div>
 				) : 'uh oh' }
-			  <Link to={`/`} > <h5> home </h5> </Link>
-			  <Link to={`/about`} > <h5> about the app </h5> </Link>
+			  <Link to={`/about`} > <h5> the purpose </h5> </Link>
+              <Link to={`/howitworks`} > <h5> how it works </h5> </Link>
+              <Link to={`/`} > <h5> home </h5> </Link>
+              <div>
+                < Footer />
+              </div>
 			</div>
         );
     }
