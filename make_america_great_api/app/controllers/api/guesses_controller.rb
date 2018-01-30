@@ -18,9 +18,9 @@ module Api
     # POST /guesses
     def create
       @guess = Guess.new(guess_params)
-
+      @guess.date = Date.today
       if @guess.save
-        render json: @guess, status: :created, location: @guess
+        render json: @guess, status: :created
       else
         render json: @guess.errors, status: :unprocessable_entity
       end

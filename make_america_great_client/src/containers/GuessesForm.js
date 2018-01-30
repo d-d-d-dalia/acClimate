@@ -3,10 +3,11 @@
  import { updateGuessesFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
  import { connect } from 'react-redux';
+ import { bindActionCreators } from 'redux'
 
  class GuessesForm extends Component {
 
- handleOnChange =  event => {
+ handleOnChange = event => {
  	const { name, value } = event.target
  	console.log(name)
  	const currentGuessesFormData = Object.assign({}, this.props.guessesFormData, {
@@ -41,4 +42,8 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, { updateGuessesFormData })(GuessesForm);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ updateGuessesFormData, createGuess }, dispatch)
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GuessesForm);

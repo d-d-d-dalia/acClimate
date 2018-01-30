@@ -23,6 +23,7 @@ export default (state = {
               guesses : action.guesses 
             };
         case 'CREATE_GUESS_SUCCESS':
+                debugger
             return { 
               ...state,
               guesses : [ ...state.guesses, action.guess ] 

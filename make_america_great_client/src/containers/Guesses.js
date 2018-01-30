@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { guessesFetchData } from '../actions/Guesses';
 import React, { Component } from 'react';
 import {  Route, 	Switch , Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { App } from './App'
 
   
 class Guesses extends Component {
@@ -46,11 +48,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(guessesFetchData(url))
-    };
+    return bindActionCreators({ fetchData: guessesFetchData }, dispatch)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guesses);
-
-

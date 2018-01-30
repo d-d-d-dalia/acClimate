@@ -1,6 +1,6 @@
 const addGuess = guess => {
     return {
-        type: ' CREATE_GUESS_SUCCESS',
+        type: 'CREATE_GUESS_SUCCESS',
         guess
     }
 }
@@ -11,7 +11,7 @@ export const createGuess = guess => {
 		return fetch(`http://localhost:3001/api/guesses`, {
           method: "POST",
           headers: {
-            'Conent-Type': 'application/json'
+            'Content-Type': 'application/json'
           },
         body: JSON.stringify({ guess: guess })
 	   })
