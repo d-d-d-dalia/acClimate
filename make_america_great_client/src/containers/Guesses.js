@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
 import Footer from '../components/Footer'
 
-
 //( diff btw {temperature} & {guess} <= 5 ) ? "right on!" : "womp-womp"
   
 class Guesses extends Component {
@@ -16,8 +15,10 @@ class Guesses extends Component {
         this.props.fetchData('/api/guesses')
     }
 
-    render() {
+//let absoluteValue = Math.abs({guess.guess - guess.temperature})
+//absoluteValue <= 3 ? "yaaaaaass" : "womp-womp"
 
+    render() {
         if (this.props.hasErrored) {
             return (
              <p> Sorry, there was a loading error </p>
@@ -34,8 +35,8 @@ class Guesses extends Component {
         	<div className="Guesses Container">
 			  <h4> Your Guesses: </h4>
 				{this.props ? this.props.guesses.map((guess, i) =>
-				  <div key={i} >
-				    <p> {guess.date} - {guess.guess ? "right on!" : "womp-womp"} </p>
+				  <div key={i}>
+				    <p> {guess.date} - {guess.guess ? "yaaaaasss" : "womp-womp"} - {guess.guess} - {guess.temperature} </p>
                   </div>
                 ) : 'uh oh' }
               <div>

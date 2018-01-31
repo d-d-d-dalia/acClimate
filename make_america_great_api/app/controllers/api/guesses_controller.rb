@@ -19,6 +19,7 @@ module Api
     def create
       @guess = Guess.new(guess_params)
       @guess.date = Date.today
+      binding.pry
       if @guess.save
         render json: @guess, status: :created
       else
@@ -43,7 +44,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def guess_params
-        params.require(:guess).permit(:guess, :date, :temperture)
+        params.require(:guess).permit(:guess, :date, :temperature)
       end
   end
 

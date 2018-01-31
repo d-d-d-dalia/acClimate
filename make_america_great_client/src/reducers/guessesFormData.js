@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export default (state =  {
-	guess: ''
+	guess: '',
+	temperature: ''
 }, action) => {
 
 	switch(action.type) {

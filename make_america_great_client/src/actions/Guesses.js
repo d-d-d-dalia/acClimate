@@ -5,7 +5,7 @@ const addGuess = guess => {
     }
 }
 
-export const createGuess = (guess, temperature) => {
+export const createGuess = (guess) => {
 	return dispatch => {
 
 		return fetch(`http://localhost:3001/api/guesses`, {
