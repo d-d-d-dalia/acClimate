@@ -24,14 +24,19 @@
  }
 
  	render() {
+ 		// debugger
+ 		//defining 2 things at once is called 'destructuring'
  	  const {guess, date} = this.props.guessesFormData
+ 	  if (this.props.forecast) {const {temperature} = this.props.forecast}
+ 	  	debugger
+ 	  
  	  return (
  	  	<div>
  	  	  <h4> venture a guess in Celsius! </h4>
  	  	  	<div>
  	  	  	  <h5> (try not to do the math) </h5>
  	  	  	</div>
- 	  	  <form onSubmit={this.handleOnSubmit}>
+ 	  	  	<form onSubmit={this.handleOnSubmit}>
  	  	    <label htmlFor="guess"></label>
  	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
  	  	    <button type="submit"> guess! </button>

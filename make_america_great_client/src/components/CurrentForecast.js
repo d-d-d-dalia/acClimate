@@ -5,7 +5,7 @@ import React from 'react';
 const CurrentForecast = ({forecast: {temperature}}) => <div>
 
 		<div style={{ border: 'solid 1px blue', padding: '20px', margin: '20px' }}>
-		<h2> the current temperature is { Math.round(temperature) } &#176; Farenheit </h2>
+		<h2> current temperature: { Math.round(temperature) }&#176;F </h2>
 		</div>
 
 	</div>

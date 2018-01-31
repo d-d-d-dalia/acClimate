@@ -43,7 +43,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def guess_params
-        params.require(:guess).permit(:guess, :date)
+        params.require(:guess).permit(:guess, :date, :temperture)
       end
   end
 

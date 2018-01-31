@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118210418) do
+ActiveRecord::Schema.define(version: 20180131022932) do
 
   create_table "guesses", force: :cascade do |t|
     t.integer "guess"
     t.date "date"
+    t.float "temperature"
   end
 
 end

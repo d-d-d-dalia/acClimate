@@ -40,15 +40,15 @@ class App extends Component {
 		return (
 			<div className="App">
 			  <div className="App-header">
-			    <h1> acClimate, and make america great! </h1>
-			    <h3> one degree at a time </h3>
+			    <h1> acClimate </h1>
+			    <h5> make america great, one degree at a time </h5>
 			  </div>
 			  
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
 			  </div>
 			  <div>
-			  	< GuessesForm />
+			  	< GuessesForm forecast={weatherData.currently} />
 			  </div>
 			  <div> 
 			  	<Link to={`/guesses`} > <h5> guesses log </h5> </Link>

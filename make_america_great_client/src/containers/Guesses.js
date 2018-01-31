@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-import { guessesFetchData } from '../actions/Guesses';
-import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { guessesFetchData } from '../actions/Guesses'
+import React, { Component } from 'react'
 import {  Route, 	Switch , Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
@@ -19,11 +19,15 @@ class Guesses extends Component {
     render() {
 
         if (this.props.hasErrored) {
-            return <p>Sorry, there was a loading error</p>;
+            return (
+             <p> Sorry, there was a loading error </p>
+            )
         }
 
         if (this.props.isLoading) {
-            return <p> Loading… </p>
+            return (
+            <p> Loading… </p>
+            )
         }
 
         return (

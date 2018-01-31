@@ -5,9 +5,9 @@ const addGuess = guess => {
     }
 }
 
-export const createGuess = guess => {
+export const createGuess = (guess, temperature) => {
 	return dispatch => {
-        //i'm not sure what this url is supposed to be
+
 		return fetch(`http://localhost:3001/api/guesses`, {
           method: "POST",
           headers: {
