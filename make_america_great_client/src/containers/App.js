@@ -9,7 +9,6 @@ import {  Route, 	Switch , Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
 import Footer from '../components/Footer'
 
-
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
 class App extends Component {
@@ -41,7 +40,7 @@ class App extends Component {
 		return (
 			<div className="App">
 			  <div className="App-header">
-			    <h1> Make America Great </h1>
+			    <h1> acClimate, and make america great! </h1>
 			    <h3> one degree at a time </h3>
 			  </div>
 			  
@@ -53,12 +52,8 @@ class App extends Component {
 			  </div>
 			  <div> 
 			  	<Link to={`/guesses`} > <h5> guesses log </h5> </Link>
-				<Route path="/guesses" component={ Guesses } />
-				
 				<Link to={`/about`} > <h5> the purpose </h5> </Link>
-
 				<Link to={`/howitworks`} > <h5> how it works </h5> </Link>
-				
 			  </div>
 			  <div>
 			    < Footer />

@@ -5,6 +5,8 @@
  import { connect } from 'react-redux';
  import { bindActionCreators } from 'redux'
 
+
+
  class GuessesForm extends Component {
 
  handleOnChange = event => {
@@ -25,11 +27,14 @@
  	  const {guess, date} = this.props.guessesFormData
  	  return (
  	  	<div>
- 	  	  <h4> What does the temperature feel like in Celsius? </h4>
+ 	  	  <h4> venture a guess in Celsius! </h4>
+ 	  	  	<div>
+ 	  	  	  <h5> (try not to do the math) </h5>
+ 	  	  	</div>
  	  	  <form onSubmit={this.handleOnSubmit}>
  	  	    <label htmlFor="guess"></label>
  	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
- 	  	    <button type="submit"> Guess! </button>
+ 	  	    <button type="submit"> guess! </button>
  	  	  </form> 
  	  	</div>
  	  )	

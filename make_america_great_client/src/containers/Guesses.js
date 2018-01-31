@@ -6,39 +6,42 @@ import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
 import Footer from '../components/Footer'
 
-//const guessConverted = ({guess} - 32)/1.8
+
 //( diff btw {temperature} & {guess} <= 5 ) ? "right on!" : "womp-womp"
   
 class Guesses extends Component {
+
     componentDidMount() {
 
-        this.props.fetchData('/api/guesses');
+        this.props.fetchData('/api/guesses')
     }
 
     render() {
-        console.log(this.props)
+
         if (this.props.hasErrored) {
             return <p>Sorry, there was a loading error</p>;
         }
 
         if (this.props.isLoading) {
-            return <p> Loading… </p>;
+            return <p> Loading… </p>
         }
 
         return (
         	<div className="Guesses Container">
 			  <h4> Your Guesses: </h4>
 				{this.props ? this.props.guesses.map((guess, i) =>
-				  <div className="GuessCard" key={i} >
-				  <p> {guess.date} - {guess.guess ? "right on!" : "womp-womp"}</p>
-				  </div>
-				) : 'uh oh' }
-			  <Link to={`/about`} > <h5> the purpose </h5> </Link>
-              <Link to={`/howitworks`} > <h5> how it works </h5> </Link>
-              <Link to={`/`} > <h5> home </h5> </Link>
+				  <div key={i} >
+				    <p> {guess.date} - {guess.guess ? "right on!" : "womp-womp"} </p>
+                  </div>
+                ) : 'uh oh' }
               <div>
-                < Footer />
+			    <Link to={`/about`} > <h5> the purpose </h5> </Link>
+                <Link to={`/howitworks`} > <h5> how it works </h5> </Link>
+                <Link to={`/`} > <h5> home </h5> </Link>
               </div>
+                <div>
+                  < Footer />
+                </div>
 			</div>
         );
     }
@@ -46,7 +49,6 @@ class Guesses extends Component {
 
 const mapStateToProps = (state) => {
     console.log('yes im being called')
-    console.log(state)
     return {
         guesses: state.guessesReducer.guesses,
         hasErrored: state.guessesReducer.error,
