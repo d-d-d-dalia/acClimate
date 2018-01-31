@@ -14,8 +14,8 @@ class Guesses extends Component {
 
         this.props.fetchData('/api/guesses')
     }
-
-//let absoluteValue = Math.abs({guess.guess - guess.temperature})
+//let temperatureC = (guess.temperature * 1.8) + 32
+//let absoluteValue = Math.abs({guess.guess - temperatureC})
 //absoluteValue <= 3 ? "yaaaaaass" : "womp-womp"
 
     render() {

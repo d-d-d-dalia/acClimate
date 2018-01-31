@@ -19,7 +19,7 @@ module Api
     def create
       @guess = Guess.new(guess_params)
       @guess.date = Date.today
-      binding.pry
+      # binding.pry
       if @guess.save
         render json: @guess, status: :created
       else
