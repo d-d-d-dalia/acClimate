@@ -5,8 +5,6 @@ import {  Route, 	Switch , Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
 import Footer from '../components/Footer'
-
-//( diff btw {temperature} & {guess} <= 5 ) ? "right on!" : "womp-womp"
   
 class Guesses extends Component {
 
@@ -14,9 +12,6 @@ class Guesses extends Component {
 
         this.props.fetchData('/api/guesses')
     }
-//let temperatureC = (guess.temperature * 1.8) + 32
-//let absoluteValue = Math.abs({guess.guess - temperatureC})
-//absoluteValue <= 3 ? "yaaaaaass" : "womp-womp"
 
     render() {
         if (this.props.hasErrored) {
@@ -31,12 +26,18 @@ class Guesses extends Component {
             )
         }
 
+        let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
+            let temperatureC = (guess.temperature - 32) / 1.8
+            let absoluteValue = Math.abs(guess.guess - temperatureC)
+            return (absoluteValue <= 3 ? "yaaaaaass" : "womp-womp")
+        }) : []
+
         return (
         	<div className="Guesses Container">
 			  <h4> Your Guesses: </h4>
 				{this.props ? this.props.guesses.map((guess, i) =>
 				  <div key={i}>
-				    <p> {guess.date} - {guess.guess ? "yaaaaasss" : "womp-womp"} - {guess.guess} - {guess.temperature} </p>
+				    <p> {guess.date} - {modifiedGuesses[i]} - {guess.guess} - {guess.temperature} </p>
                   </div>
                 ) : 'uh oh' }
               <div>
