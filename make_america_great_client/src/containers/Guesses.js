@@ -1,15 +1,15 @@
 import { connect } from 'react-redux'
 import { guessesFetchData } from '../actions/Guesses'
 import React, { Component } from 'react'
-import {  Route, 	Switch , Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
-import { CurrentForecast } from '../components/CurrentForecast'
 import Footer from '../components/Footer'
+// import { CurrentForecast } from '../components/CurrentForecast'
   
-const checkGuess = (guess, i) => {
-    let temperatureC = (guess.temperature - 32) / 1.8
-    let absoluteValue = Math.abs(guess.guess - temperatureC)
-    return (absoluteValue <= 3 ? "yaaaaaass" : "womp-womp")
+const checkGuess = (guess, temperature) => {
+    let temperatureC = (temperature - 32) / 1.8
+    let absoluteValue = Math.abs(guess - temperatureC)
+    return (absoluteValue <= 3 ? "yes!" : "nope")
 }
 
 class Guesses extends Component {
@@ -32,7 +32,9 @@ class Guesses extends Component {
             )
         }
 
-        let modifiedGuesses = this.props ? this.props.guesses.map(checkGuess)
+        let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
+            return checkGuess(guess.guess, guess.temperature)
+        })
         : []
 
         return (
@@ -40,7 +42,8 @@ class Guesses extends Component {
 			  <h4> Your Guesses: </h4>
 				{this.props ? this.props.guesses.map((guess, i) =>
 				  <div key={i}>
-				    <p> {guess.date} - {modifiedGuesses[i]} - {guess.guess} - {guess.temperature} </p>
+				    <p> {guess.date} </p>
+                    <p> {modifiedGuesses[i]} ~~ guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
                   </div>
                 ) : 'uh oh' }
               <div>

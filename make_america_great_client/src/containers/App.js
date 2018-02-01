@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css'
 import { connect } from 'react-redux';
 import fetchJsonp from 'fetch-jsonp'
-import Guesses from './Guesses'
-import howItWorks from '../components/howItWorks'
 import CurrentForecast from '../components/CurrentForecast'
-import {  Route, 	Switch , Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
 import Footer from '../components/Footer'
+// import Guesses from './Guesses'
+// import howItWorks from '../components/howItWorks'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 
@@ -45,7 +45,7 @@ class App extends Component {
 			  </div>
 			  
 			  <div className="App-intro">
-			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "" }
+			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "...LOADING...ONE SEC..." }
 			  </div>
 			  <div>
 			  	< GuessesForm forecast={weatherData.currently} />

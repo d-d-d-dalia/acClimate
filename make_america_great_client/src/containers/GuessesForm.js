@@ -1,10 +1,10 @@
  import React, { Component } from 'react';
- import Guesses from './Guesses'
  import { updateGuessesFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
  import { connect } from 'react-redux';
  import { bindActionCreators } from 'redux'
  import { checkGuess } from './Guesses'
+  // import Guesses from './Guesses'
 
  class GuessesForm extends Component {
 
@@ -26,7 +26,7 @@
 
  	render() {
  		//defining 2 things at once is called 'destructuring'
- 	  const {guess, date} = this.props.guessesFormData
+ 	  const {guess, date, temperature} = this.props.guessesFormData
 
  	  return (
  	  	<div>
@@ -38,10 +38,12 @@
  	  	    <label htmlFor="guess"></label>
  	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
  	  	    <button type="submit"> guess! </button>
+
+ 	  	   	<div>
+ 	  	  	{ guess ? checkGuess(parseInt(guess), temperature) : '' }
+ 	  	  	</div>
+
  	  	  </form>
- 	  	  <div>
- 	  	  	{ guess ? checkGuess(guess, 0) : ''}
- 	  	  </div>
  	  	</div>
  	  )	
  	}
