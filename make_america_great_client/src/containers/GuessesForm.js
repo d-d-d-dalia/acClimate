@@ -4,6 +4,7 @@
  import { createGuess } from '../actions/Guesses'
  import { connect } from 'react-redux';
  import { bindActionCreators } from 'redux'
+ import { checkGuess } from './Guesses'
 
  class GuessesForm extends Component {
 
@@ -37,7 +38,10 @@
  	  	    <label htmlFor="guess"></label>
  	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
  	  	    <button type="submit"> guess! </button>
- 	  	  </form> 
+ 	  	  </form>
+ 	  	  <div>
+ 	  	  	{ guess ? checkGuess(guess, 0) : ''}
+ 	  	  </div>
  	  	</div>
  	  )	
  	}

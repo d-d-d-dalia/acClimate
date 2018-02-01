@@ -6,6 +6,12 @@ import { bindActionCreators } from 'redux'
 import { CurrentForecast } from '../components/CurrentForecast'
 import Footer from '../components/Footer'
   
+const checkGuess = (guess, i) => {
+    let temperatureC = (guess.temperature - 32) / 1.8
+    let absoluteValue = Math.abs(guess.guess - temperatureC)
+    return (absoluteValue <= 3 ? "yaaaaaass" : "womp-womp")
+}
+
 class Guesses extends Component {
 
     componentDidMount() {
@@ -26,11 +32,8 @@ class Guesses extends Component {
             )
         }
 
-        let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
-            let temperatureC = (guess.temperature - 32) / 1.8
-            let absoluteValue = Math.abs(guess.guess - temperatureC)
-            return (absoluteValue <= 3 ? "yaaaaaass" : "womp-womp")
-        }) : []
+        let modifiedGuesses = this.props ? this.props.guesses.map(checkGuess)
+        : []
 
         return (
         	<div className="Guesses Container">
@@ -68,3 +71,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guesses);
+export { checkGuess };
