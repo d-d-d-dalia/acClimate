@@ -9,6 +9,13 @@ export default (state =  {
 	switch(action.type) {
 		case 'UPDATED_DATA':
 			return Object.assign({}, state, action.guessesFormData)
+		
+		case 'CHECK_GUESS':
+			  return action.guessesFormData
+
+		case 'RESET_GUESS_FORM':
+			  return action.guessesFormData
+
 		default:
 			return state
 	}

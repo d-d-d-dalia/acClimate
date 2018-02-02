@@ -8,6 +8,14 @@
 
  class GuessesForm extends Component {
 
+ 	constructor (props) {
+		super (props)
+
+		this.state = {
+			showResult: false
+		}
+	}
+
  handleOnChange = event => {
  	const { name, value } = event.target
  	let temperature = temperature || 0
@@ -17,11 +25,13 @@
  		[name]: value, temperature: temperature
  	})
  	this.props.updateGuessesFormData(currentGuessesFormData)
+ 	this.setState({showResult: false})
  }
 
  handleOnSubmit = event => {
  	event.preventDefault()
  	this.props.createGuess(this.props.guessesFormData)
+ 	this.setState({showResult: true})
  }
 
  	render() {
@@ -40,12 +50,12 @@
  	  	    <button type="submit"> guess! </button>
 
  	  	   	<div>
- 	  	  	{ guess ? checkGuess(parseInt(guess), temperature) : '' }
+ 	  	  	{ this.state.showResult ? checkGuess(parseInt(guess), temperature) : '' }
  	  	  	</div>
 
  	  	  </form>
  	  	</div>
- 	  )	
+ 	  )
  	}
  }
 

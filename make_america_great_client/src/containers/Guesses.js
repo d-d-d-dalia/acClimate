@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 const checkGuess = (guess, temperature) => {
     let temperatureC = (temperature - 32) / 1.8
     let absoluteValue = Math.abs(guess - temperatureC)
-    return (absoluteValue <= 3 ? "yes!" : "nope")
+    return (absoluteValue <= 2 ? "YES!" : "NOPE")
 }
 
 class Guesses extends Component {

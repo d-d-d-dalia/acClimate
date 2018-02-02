@@ -1,3 +1,11 @@
+
+
+to do:
+
+reset form, don't show drop down of previous guesses
+
+total the number of right and wrong in guesses component
+
 //for app.js file:
 
 // something like this needs to happen to reduxify this. i think this will replace what i currently have in render.
