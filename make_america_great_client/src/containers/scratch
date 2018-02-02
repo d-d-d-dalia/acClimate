@@ -6,10 +6,7 @@ total the number of right and wrong in guesses component
 
 change checkGuess function to be a reducer/action thing
 
-get header to appear on all pages
-
-
-
+add loading logo
 
 //for app.js file:
 
