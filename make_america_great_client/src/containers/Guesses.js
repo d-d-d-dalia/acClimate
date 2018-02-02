@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import {  Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import Footer from '../components/Footer'
+import Home from '../components/Home'
 // import { CurrentForecast } from '../components/CurrentForecast'
   
 const checkGuess = (guess, temperature) => {
@@ -39,6 +40,7 @@ class Guesses extends Component {
 
         return (
         	<div className="Guesses Container">
+            < Home />
 			  <h4> Your Guesses: </h4>
 				{this.props ? this.props.guesses.map((guess, i) =>
 				  <div key={i}>

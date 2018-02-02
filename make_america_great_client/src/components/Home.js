@@ -2,11 +2,14 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className='Home'>
-      <h1>Make America Great</h1>
-      <p>one degree at a time</p>
-      <p> log your celsius guesses each day to acClimate to a more widely understood read on the weather </p>
-    </div>
+    // <div className='Home'>
+    //   <h1>Make America Great</h1>
+    //   <p>one degree at a time</p>
+    // </div>
+    <div className="App-header">
+		<h1> acClimate </h1>
+		<h5> make america great, one degree at a time </h5>
+	</div>
   )
 }
 

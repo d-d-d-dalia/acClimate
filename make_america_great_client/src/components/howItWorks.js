@@ -1,10 +1,12 @@
 import React from 'react';
 import {  Link } from 'react-router-dom'
 import Footer from './Footer'
+import Home from './Home'
 
 const howItWorks = () => {
   return (
     <div className='howItWorks'>
+    < Home />
       <h1> - how it works - </h1>
       <p> Make America Great is a React app using Redux middleware, connected to a Rails api backend. 
       It pulls temperature data for your current location using the darksky.net api. 

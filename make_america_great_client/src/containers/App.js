@@ -6,6 +6,7 @@ import CurrentForecast from '../components/CurrentForecast'
 import {  Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
 import Footer from '../components/Footer'
+import Home from '../components/Home'
 // import Guesses from './Guesses'
 // import howItWorks from '../components/howItWorks'
 
@@ -39,10 +40,7 @@ class App extends Component {
 		console.log("weather data: ", weatherData)
 		return (
 			<div className="App">
-			  <div className="App-header">
-			    <h1> acClimate </h1>
-			    <h5> make america great, one degree at a time </h5>
-			  </div>
+			  < Home />
 			  
 			  <div className="App-intro">
 			 { weatherData.currently ?  <CurrentForecast forecast={weatherData.currently} /> : "...LOADING...ONE SEC..." }
