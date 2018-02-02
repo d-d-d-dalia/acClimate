@@ -1,10 +1,15 @@
-
-
 to do:
 
 reset form, don't show drop down of previous guesses
 
 total the number of right and wrong in guesses component
+
+change checkGuess function to be a reducer/action thing
+
+
+
+
+
 
 //for app.js file:
 
