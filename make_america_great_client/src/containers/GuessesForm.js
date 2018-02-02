@@ -40,7 +40,7 @@
 
  	  return (
  	  	<div>
- 	  	  <h4> venture a guess in Celsius! </h4>
+ 	  	  <h4> venture a guess in celsius! </h4>
  	  	  	<div>
  	  	  	  <h5> (try not to do the math) </h5>
  	  	  	</div>
