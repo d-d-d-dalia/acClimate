@@ -46,7 +46,7 @@
  	  	  	</div>
  	  	  	<form onSubmit={(event) => this.handleOnSubmit(event)}>
  	  	    <label htmlFor="guess"></label>
- 	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} />
+ 	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} autocomplete="off" />
  	  	    <button type="submit"> guess! </button>
 
  	  	   	<div>
