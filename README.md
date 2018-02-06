@@ -1,7 +1,7 @@
 # acClimate
 Flatiron Project #5 - React Redux
 
-make_america_great is a React frontend app with Rails backend api that is meant to help Americans begin to read the temperature in celsius instead of farenheit.
+acClimate is a React frontend app with Rails backend api that is meant to help Americans begin to read the temperature in celsius instead of farenheit.
 
 To install this app, follow these steps:
 
