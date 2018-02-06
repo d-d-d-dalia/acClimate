@@ -1,4 +1,4 @@
-# make_america_great
+# acClimate
 Flatiron Project #5 - React Redux
 
 make_america_great is a React frontend app with Rails backend api that is meant to help Americans begin to read the temperature in celsius instead of farenheit.
