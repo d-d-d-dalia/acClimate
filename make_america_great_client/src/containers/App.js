@@ -7,8 +7,6 @@ import {  Link } from 'react-router-dom'
 import GuessesForm from './GuessesForm'
 import Footer from '../components/Footer'
 import Home from '../components/Home'
-// import Guesses from './Guesses'
-// import howItWorks from '../components/howItWorks'
 
 const APIURL = `https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}`
 

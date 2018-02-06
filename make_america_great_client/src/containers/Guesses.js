@@ -5,7 +5,6 @@ import {  Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import Footer from '../components/Footer'
 import Home from '../components/Home'
-// import { CurrentForecast } from '../components/CurrentForecast'
   
 const checkGuess = (guess, temperature) => {
     let temperatureC = (temperature - 32) / 1.8
