@@ -1,9 +1,10 @@
  import React, { Component } from 'react';
- import { updateGuessesFormData } from '../actions/guessesForm'
+ import { updateGuessesFormData, resetGuessFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
  import { connect } from 'react-redux';
  import { bindActionCreators } from 'redux'
- import { checkGuess } from './Guesses'
+ import { checkGuess} from './Guesses'
+
 
  class GuessesForm extends Component {
 
@@ -16,6 +17,7 @@
 	}
 
  handleOnChange = event => {
+ 	//in reference to input types on line 50
  	const { name, value } = event.target
  	let temperature = temperature || 0
  	if (this.props.forecast) {temperature = this.props.forecast.temperature}
@@ -23,14 +25,17 @@
  		//it will look for a key and value of the same name, temperature
  		[name]: value, temperature: temperature
  	})
+ 	//updates state to include info from form
  	this.props.updateGuessesFormData(currentGuessesFormData)
  	this.setState({showResult: false})
  }
 
  handleOnSubmit = event => {
  	event.preventDefault()
+ 	
  	this.props.createGuess(this.props.guessesFormData)
  	this.setState({showResult: true})
+ 	// this.props.resetGuessFormData()
  }
 
  	render() {
@@ -45,7 +50,7 @@
  	  	  	</div>
  	  	  	<form onSubmit={(event) => this.handleOnSubmit(event)}>
  	  	    <label htmlFor="guess"></label>
- 	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} autocomplete="off" />
+ 	  	    <input type="text" onChange={this.handleOnChange} name="guess" value={guess} autoComplete="off" />
  	  	    <button type="submit"> guess! </button>
 
  	  	   	<div>

@@ -11,7 +11,7 @@ export const checkGuessFormData = guessesFormData => {
   	}
 }
 
-export const resetGuessFormData = guessesFormData => {
+export const resetGuessFormData = () => {
   	return {
       type: 'RESET_GUESS_FORM'
   	}

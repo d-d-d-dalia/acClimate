@@ -14,9 +14,24 @@ const checkGuess = (guess, temperature) => {
 
 class Guesses extends Component {
 
+//     constructor (props) {
+//         super (props)
+
+//         this.state = {
+//             counter: 0
+//         }
+        
+//     }
+
+// handleOnClick = event => {
+//     event.preventDefault()
+//     // debugger
+//     this.setState({counter: this.state.counter + 1})
+// }
+
     componentDidMount() {
 
-        this.props.fetchData('/api/guesses')
+        this.props.guessesFetchData('/api/guesses')
     }
 
     render() {
@@ -45,6 +60,7 @@ class Guesses extends Component {
 				  <div key={i}>
 				    <p> {guess.date} </p>
                     <p> {modifiedGuesses[i]} ~~ guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
+
                   </div>
                 ) : 'uh oh' }
               <div>
@@ -56,7 +72,7 @@ class Guesses extends Component {
                   < Footer />
                 </div>
 			</div>
-        );
+        )
     }
 }
 
@@ -67,12 +83,12 @@ const mapStateToProps = (state) => {
         hasErrored: state.guessesReducer.error,
         isLoading: state.guessesReducer.loading,
         temperature: state.temperature
-    };
-};
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ fetchData: guessesFetchData }, dispatch)
-};
+    return bindActionCreators({ guessesFetchData }, dispatch)
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Guesses);
-export { checkGuess };
+export default connect(mapStateToProps, mapDispatchToProps)(Guesses)
+export { checkGuess }

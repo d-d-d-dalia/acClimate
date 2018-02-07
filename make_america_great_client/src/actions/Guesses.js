@@ -25,21 +25,21 @@ export function guessesHasErrored(bool) {
     return {
         type: 'GUESSES_HAS_ERRORED',
         hasErrored: bool
-    };
+    }
 }
 
 export function guessesIsLoading(bool) {
     return {
         type: 'GUESSES_IS_LOADING',
         isLoading: bool
-    };
+    }
 }
 
 export function guessesFetchDataSuccess(guesses) {
     return {
         type: 'GUESSES_FETCH_DATA_SUCCESS',
         guesses
-    };
+    }
 }
 
 export function errorAfterFiveSeconds() {
@@ -49,7 +49,7 @@ export function errorAfterFiveSeconds() {
             // This function is able to dispatch other action creators
             dispatch(guessesHasErrored(true));
         }, 5000);
-    };
+    }
 }
 
 export const guessesFetchData = () => {
@@ -70,5 +70,5 @@ export const guessesFetchData = () => {
             .then((response) => response.json())
             .then((guesses) => dispatch(guessesFetchDataSuccess(guesses)))
             .catch(() => dispatch(guessesHasErrored(true)));
-    };
+    }
 }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 
 export default (state = {
@@ -11,24 +11,24 @@ export default (state = {
                 //spread operator: "for every key value pair in this value 'state', apply them here"
               ...state,
               error : action.hasErrored 
-            };
+            }
         case 'GUESSES_IS_LOADING':
             return { 
               ...state,
               loading : action.isLoading 
-            };
+            }
         case 'GUESSES_FETCH_DATA_SUCCESS':
             return { 
               ...state,
               guesses : action.guesses 
-            };
+            }
         case 'CREATE_GUESS_SUCCESS':
                 debugger
             return { 
               ...state,
               guesses : [ ...state.guesses, action.guess ] 
-            };
+            }
         default:
-            return state;
+            return state
     }
 }

@@ -14,7 +14,7 @@ export default (state =  {
 			  return action.guessesFormData
 
 		case 'RESET_GUESS_FORM':
-			  return action.guessesFormData
+			  return state
 
 		default:
 			return state

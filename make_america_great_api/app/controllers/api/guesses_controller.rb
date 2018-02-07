@@ -17,6 +17,7 @@ module Api
 
     # POST /guesses
     def create
+      # binding.pry
       @guess = Guess.new(guess_params)
       @guess.date = Date.today
       # binding.pry
@@ -43,6 +44,7 @@ module Api
       end
 
       # Only allow a trusted parameter "white list" through.
+      # strong params are requiring that the parameters match the names that are sent through the client side req
       def guess_params
         params.require(:guess).permit(:guess, :date, :temperature)
       end
