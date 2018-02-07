@@ -14,20 +14,20 @@ const checkGuess = (guess, temperature) => {
 
 class Guesses extends Component {
 
-//     constructor (props) {
-//         super (props)
+    constructor (props) {
+        super (props)
 
-//         this.state = {
-//             counter: 0
-//         }
+        this.state = {
+            counter: 0
+        }
         
-//     }
+    }
 
-// handleOnClick = event => {
-//     event.preventDefault()
-//     // debugger
-//     this.setState({counter: this.state.counter + 1})
-// }
+handleOnClick = event => {
+    event.preventDefault()
+    // debugger
+    this.setState({counter: this.state.counter + 1})
+}
 
     componentDidMount() {
 
