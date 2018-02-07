@@ -60,7 +60,7 @@ class Guesses extends Component {
 				  <div key={i}>
 				    <p> {guess.date} </p>
                     <p> {modifiedGuesses[i]} ~~ guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
-
+                    <button type="submit" onClick={(event) => this.handleOnClick(event)}> like </button> <p>{this.state.counter}</p>
                   </div>
                 ) : 'uh oh' }
               <div>
