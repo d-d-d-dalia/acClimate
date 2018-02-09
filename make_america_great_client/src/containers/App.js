@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import fetchJsonp from 'fetch-jsonp'
 import CurrentForecast from '../components/CurrentForecast'
 import {  Link } from 'react-router-dom'

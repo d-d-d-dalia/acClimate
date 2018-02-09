@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
- import { updateGuessesFormData, resetGuessFormData } from '../actions/guessesForm'
+ import { updateGuessesFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
  import { connect } from 'react-redux';
  import { bindActionCreators } from 'redux'

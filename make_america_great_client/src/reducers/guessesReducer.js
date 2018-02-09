@@ -1,7 +1,3 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
-
 export default (state = {
     error: false, loading: false, guesses: []
     }, action) => {
