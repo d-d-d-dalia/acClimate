@@ -18,15 +18,17 @@ class Guesses extends Component {
         super (props)
 
         this.state = {
-            counter: 0
+            likeArray: []
         }
-        
+
     }
 
-handleOnClick = event => {
+handleOnClick = (event, i) => {
     event.preventDefault()
-    // debugger
-    this.setState({counter: this.state.counter + 1})
+    let updatedLikeArray = this.state.likeArray
+    updatedLikeArray[i] = updatedLikeArray[i] + 1
+    //if you don't call this.setState, react doesn't know that you changed
+    this.setState({likeArray: updatedLikeArray})
 }
 
     componentDidMount() {
@@ -47,31 +49,37 @@ handleOnClick = event => {
             )
         }
 
+        if (this.state.likeArray.length === 0) {
+          this.state.likeArray = Array(this.props.guesses.length).fill(0)
+               // console.log(this.props.guesses.length) 
+               // console.log(this.state.likeArray)
+        }
+
         let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
             return checkGuess(guess.guess, guess.temperature)
         })
         : []
 
         return (
-        	<div className="Guesses Container">
+            <div className="Guesses Container">
             < Home />
-			  <h4> Your Guesses: </h4>
-				{this.props ? this.props.guesses.map((guess, i) =>
-				  <div key={i}>
-				    <p> {guess.date} </p>
+              <h4> Your Guesses: </h4>
+                {this.props ? this.props.guesses.map((guess, i) =>
+                  <div key={i}>
+                    <p> {guess.date} </p>
                     <p> {modifiedGuesses[i]} ~~ guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
-                    <button type="submit" onClick={(event) => this.handleOnClick(event)}> like </button> <p>{this.state.counter}</p>
+                    <button type="submit" onClick={(event) => this.handleOnClick(event, i)}> like </button> <p>{this.state.likeArray[i]}</p>
                   </div>
                 ) : 'uh oh' }
               <div>
-			    <Link to={`/about`} > <h5> the purpose </h5> </Link>
+                <Link to={`/about`} > <h5> the purpose </h5> </Link>
                 <Link to={`/howitworks`} > <h5> how it works </h5> </Link>
                 <Link to={`/`} > <h5> home </h5> </Link>
               </div>
                 <div>
                   < Footer />
                 </div>
-			</div>
+            </div>
         )
     }
 }

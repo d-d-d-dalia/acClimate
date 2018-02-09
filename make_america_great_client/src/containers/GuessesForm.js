@@ -32,7 +32,7 @@
 
  handleOnSubmit = event => {
  	event.preventDefault()
- 	
+
  	this.props.createGuess(this.props.guessesFormData)
  	this.setState({showResult: true})
  	// this.props.resetGuessFormData()
@@ -70,7 +70,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+	//bind action creators says 'pipe the return value of the action creators thru all reducers'
     return bindActionCreators({ updateGuessesFormData, createGuess }, dispatch)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GuessesForm);
+

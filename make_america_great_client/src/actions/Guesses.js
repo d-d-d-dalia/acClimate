@@ -1,4 +1,5 @@
 const addGuess = guess => {
+    //line 2-5 is the action, the creator is the addGuess function, so return value of action creator is action itself
     return {
         type: 'CREATE_GUESS_SUCCESS',
         guess
