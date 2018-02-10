@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Like from './Like'
+import {addLike} from '../actions/Guesses';
 
 class Guess extends Component {
 
@@ -14,7 +16,6 @@ class Guess extends Component {
 
 handleOnLike = () => {
   this.setState({count: this.state.count + 1});
-  
 }
 
   render() {
@@ -25,10 +26,10 @@ handleOnLike = () => {
         <div key={guess.id}>
            <p> {guess.date} </p>
            <p> guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
-           <button type="submit" onClick={(event) => this.handleOnLike(event)}> likes: {this.state.count} </button> 
+           < Like handleOnLike={this.handleOnLike} like={this.props.guess.like}/>
         </div>
     )
   }
 }
 
-export default Guess
+export default connect(null, {addLike})(Guess);

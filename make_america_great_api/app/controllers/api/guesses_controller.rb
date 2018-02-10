@@ -46,7 +46,7 @@ module Api
       # Only allow a trusted parameter "white list" through.
       # strong params are requiring that the parameters match the names that are sent through the client side req
       def guess_params
-        params.require(:guess).permit(:guess, :date, :temperature)
+        params.require(:guess).permit(:guess, :date, :temperature, :like)
       end
   end
 
