@@ -18,30 +18,11 @@ class Guesses extends Component {
     constructor (props) {
         super (props)
 
-        // this.state = {
-        //     // likeArray: []
-        // }
-
     }
-
-// handleOnClick = (event, i) => {
-//     event.preventDefault()
-//     let updatedLikeArray = this.state.likeArray
-//     updatedLikeArray[i] = updatedLikeArray[i] + 1
-//     //if you don't call this.setState, react doesn't know that you changed
-//     this.setState({likeArray: updatedLikeArray})
-// }
 
     componentDidMount() {
         this.props.guessesFetchData('/api/guesses')
     }
-
-    // componentDidUpdate() {
-    //     if (this.state.likeArray.length === 0) {
-    //       let filledLikeArray = Array(this.props.guesses.length).fill(0)
-    //       this.setState({likeArray: filledLikeArray})
-    //     }
-    // }
 
     render() {
         if (this.props.hasErrored) {
@@ -56,25 +37,17 @@ class Guesses extends Component {
             )
         }
 
-        // if (this.state.likeArray.length === 0) {
-        //   this.state.likeArray = Array(this.props.guesses.length).fill(0)
-        //        // console.log(this.props.guesses.length) 
-        //        // console.log(this.state.likeArray)
-        // }
-
         let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
             return checkGuess(guess.guess, guess.temperature)
         })
         : []
-
-         
-    
 
         return (
             <div className="Guesses Container">
             < Home />
               <h4> Your Guesses: </h4>
                 {this.props ? this.props.guesses.map((guess, i) =>
+                //this is basically the declaration of the parent/child relationship between Guess and Guesses
                 <Guess key={guess.id} guess={guess}/>
                 ) : 'uh oh'}
               <div>

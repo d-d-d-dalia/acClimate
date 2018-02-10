@@ -22,6 +22,22 @@ export const createGuess = (guess) => {
     }
 }
 
+export function addLike(likeInfo){
+    return dispatch => {
+        //fetch always by default sends a get req. if we want to, we can alter that in the second arg of the function
+        return fetch(`http://localhost:3001/api/guesses/${likeInfo.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            //this makes it json - not sure if it's necessary
+            .then(response => response.json())
+            //this dispatches to action, and specifies that the payload = data
+            .then(data => dispatch( { type: 'ADD_LIKE', payload: data })) 
+    }
+}
+
 export function guessesHasErrored(bool) {
     return {
         type: 'GUESSES_HAS_ERRORED',

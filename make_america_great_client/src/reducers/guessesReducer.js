@@ -19,11 +19,15 @@ export default (state = {
               guesses : action.guesses 
             }
         case 'CREATE_GUESS_SUCCESS':
-                debugger
+                // debugger
             return { 
               ...state,
               guesses : [ ...state.guesses, action.guess ] 
             }
+        case 'ADD_LIKE':
+            let guessL = state.filter(guess => guess.id === action.payload.id)[0]
+            let guessLike = Object.assign({}, guessL, { like: action.payload.like })
+            return state.map(guess => guess.id === action.payload.id ? guessLike : guess)
         default:
             return state
     }

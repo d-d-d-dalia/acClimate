@@ -14,18 +14,18 @@ class Guess extends Component {
 
 handleOnLike = () => {
   this.setState({count: this.state.count + 1});
+  
 }
 
-
   render() {
-
+  	//this is so it knows wth guess is
   	const {guess} = this.props
 
     return (
         <div key={guess.id}>
            <p> {guess.date} </p>
            <p> guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
-           <button type="submit" onClick={(event) => this.handleOnLike(event)}> like {this.state.count} </button> 
+           <button type="submit" onClick={(event) => this.handleOnLike(event)}> likes: {this.state.count} </button> 
         </div>
     )
   }
