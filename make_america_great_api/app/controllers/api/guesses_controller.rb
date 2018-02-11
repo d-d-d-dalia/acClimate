@@ -1,7 +1,7 @@
 module Api
 
   class GuessesController < ApplicationController
-    before_action :set_guesses, only: [:show, :update]
+    before_action :set_guess, only: [:show, :update]
 
     # GET /guesses
     def index
@@ -46,7 +46,7 @@ module Api
       # Only allow a trusted parameter "white list" through.
       # strong params are requiring that the parameters match the names that are sent through the client side req
       def guess_params
-        params.require(:guess).permit(:guess, :date, :temperature, :like)
+        params.require(:guess).permit(:guess, :date, :temperature, :likes)
       end
   end
 

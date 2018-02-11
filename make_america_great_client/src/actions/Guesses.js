@@ -29,7 +29,8 @@ export function addLike(likeInfo){
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+        body: JSON.stringify({guess: likeInfo})
         })
             //this makes it json - not sure if it's necessary
             .then(response => response.json())

@@ -25,9 +25,16 @@ export default (state = {
               guesses : [ ...state.guesses, action.guess ] 
             }
         case 'ADD_LIKE':
-            let guessL = state.filter(guess => guess.id === action.payload.id)[0]
-            let guessLike = Object.assign({}, guessL, { like: action.payload.like })
-            return state.map(guess => guess.id === action.payload.id ? guessLike : guess)
+        //filter is looking at the guesses array and finding the one, the id of which, matched the payload id
+            let guessL = state.guesses.filter(guess => guess.id === action.payload.id)[0]
+            let guessLike = Object.assign({}, guessL, { likes: action.payload.likes })
+            console.log("in reducer:")
+            //btw - it's guess and all of its info, i.e. attributes
+            console.log(action.payload)
+            return {
+              ...state,
+              guesses: state.guesses.map(guess => guess.id === action.payload.id ? guessLike : guess)
+            }
         default:
             return state
     }

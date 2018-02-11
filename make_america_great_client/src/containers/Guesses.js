@@ -37,10 +37,10 @@ class Guesses extends Component {
             )
         }
 
-        let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
-            return checkGuess(guess.guess, guess.temperature)
-        })
-        : []
+        // let modifiedGuesses = this.props ? this.props.guesses.map((guess, i) => {
+        //     return checkGuess(guess.guess, guess.temperature)
+        // })
+        // : []
 
         return (
             <div className="Guesses Container">
