@@ -1,10 +1,9 @@
- import React, { Component } from 'react';
+ import React, { Component } from 'react'
  import { updateGuessesFormData } from '../actions/guessesForm'
  import { createGuess } from '../actions/Guesses'
- import { connect } from 'react-redux';
+ import { connect } from 'react-redux'
  import { bindActionCreators } from 'redux'
  import { checkGuess} from './Guesses'
-
 
  class GuessesForm extends Component {
 
@@ -72,7 +71,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
 	//bind action creators says 'pipe the return value of the action creators thru all reducers'
     return bindActionCreators({ updateGuessesFormData, createGuess }, dispatch)
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(GuessesForm);
+export default connect(mapStateToProps, mapDispatchToProps)(GuessesForm)
 

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Like from './Like'
-import {addLike} from '../actions/Guesses';
+import {addLike} from '../actions/Guesses'
 
 class Guess extends Component {
 
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
 
-    this.state = {
-      count: 0,
-    }
-  }
+  //   // this.state = {
+  //   //   count: 0,
+  //   // }
+  // }
 
 handleOnLike = () => {
 	const likeInfo = {
@@ -21,10 +21,8 @@ handleOnLike = () => {
     }
     console.log(likeInfo)
   this.props.addLike(likeInfo)
-  // this.setState({count: this.state.count + 1});
+  // this.setState({count: this.state.count + 1})
 }
-  
-
 
   render() {
   	//this is so it knows wth guess is
@@ -40,4 +38,4 @@ handleOnLike = () => {
   }
 }
 
-export default connect(null, {addLike})(Guess);
+export default connect(null, {addLike})(Guess)

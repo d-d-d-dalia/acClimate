@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Like = (props) => {
 	// console.log('like is being called')
