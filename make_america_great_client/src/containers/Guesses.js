@@ -41,12 +41,15 @@ class Guesses extends Component {
         //     return checkGuess(guess.guess, guess.temperature)
         // })
         // : []
+        const sortedGuesses = this.props.guesses.sort(function (a, b) {
+            return b.likes - a.likes
+        })
 
         return (
             <div className="Guesses Container">
             < Home />
               <h4> Your Guesses: </h4>
-                {this.props ? this.props.guesses.map((guess, i) =>
+                {this.props ? sortedGuesses.map((guess, i) =>
                 //this is basically the declaration of the parent/child relationship between Guess and Guesses
                 <Guess key={guess.id} guess={guess}/>
                 ) : 'uh oh'}

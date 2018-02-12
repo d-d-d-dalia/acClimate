@@ -24,6 +24,20 @@ handleOnLike = () => {
   // this.setState({count: this.state.count + 1})
 }
 
+callApi() {
+  console.log('a')
+  fetch(`http://localhost:3001/api/guesses`)
+    .then((response) => {
+      console.log('b')
+      return response.json()
+    })
+    .then((data) => console.log("c", data))
+    .catch((whatever) => console.log("d", whatever))
+    console.log('e')
+
+    // a e b c, data
+}
+
   render() {
   	//this is so it knows wth guess is
   	const {guess} = this.props
@@ -33,6 +47,7 @@ handleOnLike = () => {
         <div key={guess.id}>
            <p> {guess.date} </p>
            <p> guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
+           <button onClick={this.callApi}>Call Api</button>
            <Like handleOnLike={this.handleOnLike} likes={guess.likes}/>
         </div>
     )
