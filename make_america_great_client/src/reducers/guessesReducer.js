@@ -22,7 +22,7 @@ export default (state = {
                 // debugger
             return { 
               ...state,
-              guesses : [ ...state.guesses, action.guess ] 
+              guesses : [ ...state.guesses, action.guess ]
             }
         case 'ADD_LIKE':
         //filter is looking at the guesses array and finding the one, the id of which, matched the payload id

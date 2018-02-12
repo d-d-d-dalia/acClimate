@@ -7,7 +7,7 @@ const addGuess = guess => {
 }
 
 export const createGuess = (guess) => {
-	return dispatch => {
+	// return dispatch => {
 
 		return fetch(`http://localhost:3001/api/guesses`, {
           method: "POST",
@@ -19,7 +19,7 @@ export const createGuess = (guess) => {
         .then(response => response.json())
         .then(guess => (addGuess(guess)))
         .then(error => console.log(error))
-    }
+    // }
 }
 
 export function addLike(likeInfo){

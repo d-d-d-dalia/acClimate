@@ -29,10 +29,11 @@ handleOnLike = () => {
   	const {guess} = this.props
 
     return (
+      //****** guess is giving props to like component on like 36  *****
         <div key={guess.id}>
            <p> {guess.date} </p>
            <p> guess: {guess.guess} ~~ actual: {Math.round((guess.temperature -32) / 1.8)} </p>
-           <Like handleOnLike={this.handleOnLike} likes={this.props.guess.likes}/>
+           <Like handleOnLike={this.handleOnLike} likes={guess.likes}/>
         </div>
     )
   }

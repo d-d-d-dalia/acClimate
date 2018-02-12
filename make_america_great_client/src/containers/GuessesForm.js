@@ -72,6 +72,5 @@ const mapDispatchToProps = (dispatch) => {
 	//bind action creators says 'pipe the return value of the action creators thru all reducers'
     return bindActionCreators({ updateGuessesFormData, createGuess }, dispatch)
 }
-
+//connect to the store!
 export default connect(mapStateToProps, mapDispatchToProps)(GuessesForm)
-
