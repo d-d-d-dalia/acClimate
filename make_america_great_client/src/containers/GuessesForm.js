@@ -12,7 +12,7 @@
 		super (props)
 
 		this.state = {
-			showResult: false
+			showResult: false, 
 		}
 	}
 
@@ -34,8 +34,8 @@
  	event.preventDefault()
  	
  	this.props.createGuess(this.props.guessesFormData)
- 	this.setState({showResult: true})
- 	// this.props.resetGuessFormData()
+ 	this.setState({showResult: true,})
+	this.props.guessesFormData.guess = ''
  }
 
  	render() {
